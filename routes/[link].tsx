@@ -5,20 +5,27 @@ interface Project {
   stars: number;
 }
 
+const baseURL =
+  "https://raw.githubusercontent.com/phocks/expander/refs/heads/main/links/";
+const extension = ".txt";
+
 export const handler: Handlers<string> = {
   async GET(_req, ctx) {
     const { link } = ctx.params;
 
-    const URL =
-      `https://raw.githubusercontent.com/phocks/short-links/refs/heads/main/links/${link}.txt`;
+    const URL = `${baseURL}${link}${extension}`;
 
     const response = await fetch(URL);
+
+    if (!response.ok) {
+      return new Response("Link not found", { status: 404 });
+    }
+
     const text = await response.text();
 
-    const headers = new Headers();
-    headers.set("location", text);
+    const headers = new Headers({ "Location": text });
     return new Response(null, {
-      status: 303, // See Other
+      status: 302, // Found, redirect
       headers,
     });
   },

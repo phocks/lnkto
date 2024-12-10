@@ -6,7 +6,7 @@ interface Project {
 }
 
 const baseURL =
-  "/links/";
+  "https://t.byrd.ws/links/";
 const extension = ".txt";
 
 export const handler: Handlers<Project> = {

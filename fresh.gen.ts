@@ -5,11 +5,8 @@
 import * as $_link_ from "./routes/[link].tsx";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
-import * as $api_hash from "./routes/api/hash.ts";
-import * as $api_joke from "./routes/api/joke.ts";
-import * as $api_uuid from "./routes/api/uuid.ts";
 import * as $index from "./routes/index.tsx";
-import * as $Counter from "./islands/Counter.tsx";
+
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -17,14 +14,9 @@ const manifest = {
     "./routes/[link].tsx": $_link_,
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
-    "./routes/api/hash.ts": $api_hash,
-    "./routes/api/joke.ts": $api_joke,
-    "./routes/api/uuid.ts": $api_uuid,
     "./routes/index.tsx": $index,
   },
-  islands: {
-    "./islands/Counter.tsx": $Counter,
-  },
+  islands: {},
   baseUrl: import.meta.url,
 } satisfies Manifest;
 

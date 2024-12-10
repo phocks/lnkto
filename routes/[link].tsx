@@ -6,7 +6,7 @@ interface Project {
 }
 
 const baseURL =
-  "https://raw.githubusercontent.com/phocks/expander/refs/heads/main/links/";
+  "/links/";
 const extension = ".txt";
 
 export const handler: Handlers<Project> = {

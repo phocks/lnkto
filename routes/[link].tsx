@@ -6,7 +6,7 @@ interface Project {
 }
 
 const baseURL =
-  "https://t.byrd.ws/links/";
+  "https://raw.githubusercontent.com/phocks/lnkto/refs/heads/main/static/links/";
 const extension = ".txt";
 
 export const handler: Handlers<Project> = {

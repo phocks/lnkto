@@ -1,5 +1,3 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
-
 interface Project {
   status: number;
   message: string;
@@ -9,8 +7,8 @@ const baseURL =
   "https://raw.githubusercontent.com/phocks/lnkto/refs/heads/main/static/links/";
 const extension = ".txt";
 
-export const handler: Handlers<Project> = {
-  async GET(_req, ctx) {
+export const handler = {
+  async GET(ctx: any) {
     const { link } = ctx.params;
 
     const URL = `${baseURL}${link}${extension}`;
@@ -18,7 +16,7 @@ export const handler: Handlers<Project> = {
     const response = await fetch(URL);
 
     if (!response.ok) {
-      return ctx.render({ message: "Link not Found", status: 404 });
+      return { message: "Link not Found", status: 404 };
     }
 
     const text = await response.text();
@@ -31,7 +29,7 @@ export const handler: Handlers<Project> = {
   },
 };
 
-export default function ProjectPage(props: PageProps<Project>) {
+export default function ProjectPage(props: any) {
   if (props.data.status === 404) {
     return (
       <div class="p-4 bg-gray-100 text-gray-700 border-l-4 border-red-500">

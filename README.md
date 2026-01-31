@@ -1,7 +1,17 @@
-# lnkto
-Just an experiment to see if I can create the simplest link shortener service ever. Build on [Deno Fresh](https://fresh.deno.dev).
+# Fresh project
 
-## Demo links
+Your new Fresh project is ready to go. You can follow the Fresh "Getting
+Started" guide here: https://fresh.deno.dev/docs/getting-started
 
-https://t.byrd.ws/4b0421  
-https://t.byrd.ws/794691
+### Usage
+
+Make sure to install Deno:
+https://docs.deno.com/runtime/getting_started/installation
+
+Then start the project in development mode:
+
+```
+deno task dev
+```
+
+This will watch the project directory and restart as necessary.
